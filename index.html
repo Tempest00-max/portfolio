@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gbadamosi Tolulope | Software Engineer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* --- 1. CORE VARIABLES --- */
+        :root {
+            --bg-onyx: #0a0a0a;
+            --text-silk: #f5f5f7;
+            --text-muted: #888888;
+            --border-subtle: #222222;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        /* --- 2. GLOBAL RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-onyx);
+            color: var(--text-silk);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* --- 3. HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-name {
+            font-family: var(--font-serif);
+            font-size: clamp(3.5rem, 8vw, 8rem);
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .hero-niche {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 32px;
+            border: 1px solid var(--text-silk);
+            color: var(--text-silk);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--text-silk);
+            color: var(--bg-onyx);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border-color: var(--border-subtle);
+            color: var(--text-muted);
+            gap: 8px;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--text-silk);
+            color: var(--bg-onyx);
+            border-color: var(--text-silk);
+        }
+
+        /* --- 4. ABOUT SECTION & PORTRAIT --- */
+        .about-section {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .portrait-container {
+            aspect-ratio: 3/4;
+            background-color: #111111;
+            border: 1px solid var(--border-subtle);
+            overflow: hidden;
+        }
+
+        .portrait-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-text h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .tech-stack h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 10px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tags span {
+            border: 1px solid var(--border-subtle);
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* --- 5. PROJECTS SECTION --- */
+        .work-section {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 80px;
+            font-weight: 400;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            border: 1px solid var(--border-subtle);
+            padding: 40px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            border-color: var(--text-silk);
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            font-weight: 400;
+        }
+
+        .project-focus {
+            font-size: 0.85rem;
+            color: var(--text-silk);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            flex-grow: 1;
+            /* Pushes the link to the bottom */
+            margin-bottom: 30px;
+        }
+
+        .project-link {
+            color: var(--text-silk);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--text-silk);
+            display: inline-block;
+            align-self: flex-start;
+            padding-bottom: 2px;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-link:hover {
+            opacity: 0.7;
+        }
+
+        /* --- 6. MOBILE RESPONSIVENESS --- */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-name {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero">
+        <h1 class="hero-name">Gbadamosi<br>Tolulope</h1>
+
+        <p class="hero-subtitle">Software Engineer.</p>
+        <p class="hero-niche">Focused on building secure financial infrastructure, exploring advanced data encryption,
+            and creating automated workflows.</p>
+
+        <div class="button-group">
+            <a href="#work" class="btn-primary">View The Work</a>
+
+            <a href="https://x.com/Tolulop84628438" target="_blank" rel="noopener noreferrer"
+                class="btn-primary btn-secondary">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+                X Profile
+            </a>
+        </div>
+    </header>
+
+    <section class="about-section">
+        <div class="about-grid">
+            <div class="portrait-container">
+                <img src="profile.jpg" alt="Gbadamosi Tolulope - Software Engineer">
+            </div>
+
+            <div class="about-text">
+                <h2>The Engineer</h2>
+                <p>I am a Full-Stack Software Engineer based in Nigeria, focused on building secure, high-performance
+                    systems from the database to the user interface. Driven by rigorous technical discipline, I bridge
+                    the gap between complex backend logic and clean, functional frontend execution.</p>
+
+                <div class="tech-stack">
+                    <h3>Core Arsenal</h3>
+                    <div class="tags">
+                        <span>Python</span>
+                        <span>JavaScript</span>
+                        <span>SQL</span>
+                        <span>PostgreSQL</span>
+                        <span>Redis</span>
+                        <span>WSL/Linux</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="work-section">
+        <h2 class="section-title">Selected Works</h2>
+
+        <div class="project-grid">
+            <article class="project-card">
+                <h3>Project CENTURION</h3>
+                <p class="project-focus">Secure Banking & Scalable Ledger</p>
+                <p class="project-desc">A high-integrity banking core designed for transactional consistency. Built with
+                    a focus on ACID compliance, utilizing PostgreSQL for the primary ledger and Redis for high-speed
+                    session caching.</p>
+                <a href="https://centurion-ledger.onrender.com/" target="_blank" rel="noopener noreferrer"
+                    class="project-link">View Live Deployment ↗</a>
+            </article>
+
+            <article class="project-card">
+                <h3>VAULT X2</h3>
+                <p class="project-focus">Advanced Data Encryption</p>
+                <p class="project-desc">A dedicated security module designed to handle sensitive data storage,
+                    implementing modern cryptographic standards to ensure data remains encrypted both at rest and in
+                    transit.</p>
+                <a href="https://tempest00-max.github.io/vault-x/" target="_blank" rel="noopener noreferrer"
+                    class="project-link">View Live Deployment ↗</a>
+            </article>
+
+            <article class="project-card">
+                <h3>Auto-Tm NG</h3>
+                <p class="project-focus">Next-Gen Workflow Automation</p>
+                <p class="project-desc">An automation engine built to streamline repetitive tasks and optimize system
+                    workflows, reducing manual overhead by orchestrating complex sequences through a clean interface.
+                </p>
+                <a href="https://tempest00-max.github.io/Auto-Tm-NG/" target="_blank" rel="noopener noreferrer"
+                    class="project-link">View Live Deployment ↗</a>
+            </article>
+        </div>
+    </section>
+
+</body>
+
+</html>
